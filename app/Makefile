@@ -1,5 +1,8 @@
 .DEFAULT_GOAL := build-run
 
+setup:
+	./gradlew wrapper --gradle-version 8.10
+
 clean:
 	./gradlew clean
 
@@ -14,6 +17,9 @@ run-dist:
 
 run:
 	./gradlew run
+
+lint:
+	./gradlew checkstyleMain
 
 build-run: build run
 
