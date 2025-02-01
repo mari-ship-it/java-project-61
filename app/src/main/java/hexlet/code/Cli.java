@@ -13,6 +13,5 @@ public class Cli {
         System.out.print("May I have your name? ");
         name = StringUtils.capitalize(input.nextLine());
         System.out.println("Hello, " + name + "!");
-        input.close();
     }
 }
