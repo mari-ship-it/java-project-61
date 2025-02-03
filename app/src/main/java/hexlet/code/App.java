@@ -1,10 +1,14 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n0 - Exit");
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calc\n0 - Exit");
         Scanner input = new Scanner(System.in);
         System.out.print("Your choice: ");
         int choice = input.nextInt();
@@ -15,10 +19,14 @@ public class App {
                 input.close();
                 break;
             case 2:
-                Cli.sayHelloByName();
-                Even.evenParity();
+                Even.startEvenGame();
+                break;
+            case 3:
+                Calc.startCalcGame();
+                break;
             default:
                 input.close();
+                break;
         }
     }
 }
