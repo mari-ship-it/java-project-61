@@ -2,8 +2,9 @@
 ### Even:
 https://asciinema.org/a/RrkHybijWLMkQ5PrnvoRB7rmM
 ### Calc:
-####
 https://asciinema.org/a/8vjlsZSDDaraUnZNHkuaZ3jE9
+### GCD:
+https://asciinema.org/a/5GEBPUYNua95rtvRSWUW04uwa
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/mari-ship-it/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/mari-ship-it/java-project-61/actions)
