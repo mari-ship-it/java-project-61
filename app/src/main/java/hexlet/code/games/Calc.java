@@ -10,21 +10,21 @@ public class Calc {
         String[] correctAnswer = new String[Engine.numbersOfRounds];
 
         for (int i = 0; i < Engine.numbersOfRounds; i++) {
-            int randomNum1 = Engine.getRandomNumber(1, 20);
-            int randomNum2 = Engine.getRandomNumber(1, 20);
+            int firstNum = Engine.getRandomNumber(1, 20);
+            int secondNum = Engine.getRandomNumber(1, 20);
             int operatorNum = Engine.getRandomNumber(1, 4);
             switch (operatorNum) {
                 case 1:
-                    question[i] = randomNum1 + " + " + randomNum2;
-                    correctAnswer[i] = Integer.toString(randomNum1 + randomNum2);
+                    question[i] = firstNum + " + " + secondNum;
+                    correctAnswer[i] = Integer.toString(firstNum + secondNum);
                     break;
                 case 2:
-                    question[i] = randomNum1 + " - " + randomNum2;
-                    correctAnswer[i] = Integer.toString(randomNum1 - randomNum2);
+                    question[i] = firstNum + " - " + secondNum;
+                    correctAnswer[i] = Integer.toString(firstNum - secondNum);
                     break;
                 default:
-                    question[i] = randomNum1 + " * " + randomNum2;
-                    correctAnswer[i] = Integer.toString(randomNum1 * randomNum2);
+                    question[i] = firstNum + " * " + secondNum;
+                    correctAnswer[i] = Integer.toString(firstNum * secondNum);
                     break;
             }
         }
