@@ -7,7 +7,7 @@ public class Engine {
 
     public static int numbersOfRounds = 3;
 
-    public static void evenParity(String exercise, String[] question, String[]correctAnswer) {
+    public static void evenParity(String exercise, String[] question, String[] correctAnswer) {
         Cli.sayHelloByName();
         System.out.println(exercise);
         Scanner input = new Scanner(System.in);
