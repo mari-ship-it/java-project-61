@@ -4,20 +4,20 @@ import hexlet.code.Engine;
 
 public class Even {
 
-    public static void startEvenGame() {
+    public static void launchTheGameEven() {
         String exercise = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[] question = new String[Engine.numbersOfRounds];
-        String[] correctAnswer = new String[Engine.numbersOfRounds];
+        String[] questions = new String[Engine.maxNumbersOfRounds];
+        String[] correctAnswers = new String[Engine.maxNumbersOfRounds];
 
-        for (var i = 0; i < Engine.numbersOfRounds; i++) {
-            int randomNum = Engine.getRandomNumber(1, 100);
+        for (var i = 0; i < Engine.maxNumbersOfRounds; i++) {
+            int randomNum = Engine.generateRandomNumber(1, 100);
             String strRandomNum = Integer.toString(randomNum);
             String corrAnswer = randomNum % 2 == 0 ? "yes" : "no";
-            question[i] = strRandomNum;
-            correctAnswer[i] = corrAnswer;
+            questions[i] = strRandomNum;
+            correctAnswers[i] = corrAnswer;
         }
 
-        Engine.evenParity(exercise, question, correctAnswer);
+        Engine.setLogicOfGame(exercise, questions, correctAnswers);
     }
 }
 

@@ -1,7 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import  hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
@@ -14,23 +17,23 @@ public class App {
 
         switch (choice) {
             case 1:
-                Cli.sayHelloByName();
+                Cli.renderGreeting();
                 input.close();
                 break;
             case 2:
-                Even.startEvenGame();
+                Even.launchTheGameEven();
                 break;
             case 3:
-                Calc.startCalcGame();
+                Calc.launchTheGameCalc();
                 break;
             case 4:
-                GCD.startGameGCD();
+                GCD.launchTheGameGCD();
                 break;
             case 5:
-                Progression.startProgressionGame();
+                Progression.launchTheGameProgression();
                 break;
             case 6:
-                Prime.startGamePrime();
+                Prime.launchTheGamePrime();
                 break;
             default:
                 input.close();

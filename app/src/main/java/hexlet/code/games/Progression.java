@@ -4,23 +4,23 @@ import hexlet.code.Engine;
 
 public class Progression {
 
-    public static String[] correctAnswer = new String[Engine.numbersOfRounds];
+    public static String[] correctAnswer = new String[Engine.maxNumbersOfRounds];
 
-    public static void startProgressionGame() {
+    public static void launchTheGameProgression() {
         String exercise = "What number is missing in the progression?";
-        String[] question = new String[Engine.numbersOfRounds];
+        String[] question = new String[Engine.maxNumbersOfRounds];
 
-        for (int i = 0; i < Engine.numbersOfRounds; i++) {
-            int randomNum = Engine.getRandomNumber(1, 100);
-            int stepOfProgression = Engine.getRandomNumber(2, 5);
-            int positionOfHiddenElement = Engine.getRandomNumber(2, 11);
-            question[i] = getArithmeticProgression(randomNum, stepOfProgression, positionOfHiddenElement, i);
+        for (int i = 0; i < Engine.maxNumbersOfRounds; i++) {
+            int randomNum = Engine.generateRandomNumber(1, 100);
+            int stepOfProgression = Engine.generateRandomNumber(2, 5);
+            int positionOfHiddenElement = Engine.generateRandomNumber(2, 11);
+            question[i] = generateOfArithmeticProgression(randomNum, stepOfProgression, positionOfHiddenElement, i);
         }
-        Engine.evenParity(exercise, question, correctAnswer);
+        Engine.setLogicOfGame(exercise, question, correctAnswer);
     }
 
-    public static String getArithmeticProgression(int randomNum, int stepOfProgression,
-                                                  int positionOfHiddenElement, int j) {
+    public static String generateOfArithmeticProgression(int randomNum, int stepOfProgression,
+                                                         int positionOfHiddenElement, int j) {
         int progressionLength = 10;
         var arithmeticProgression = new StringBuilder();
         int currentElement = randomNum + stepOfProgression;

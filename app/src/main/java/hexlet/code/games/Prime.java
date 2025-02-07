@@ -3,29 +3,28 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
-    public static void startGamePrime() {
+    public static void launchTheGamePrime() {
         String exercise = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] question = new String[Engine.numbersOfRounds];
-        String[] correctAnswer = new String[Engine.numbersOfRounds];
+        String[] questions = new String[Engine.maxNumbersOfRounds];
+        String[] correctAnswers = new String[Engine.maxNumbersOfRounds];
 
-        for (int i = 0; i < Engine.numbersOfRounds; i++) {
-            int randomNum = Engine.getRandomNumber(1, 100);
-            question[i] = Integer.toString(randomNum);
+        for (int i = 0; i < Engine.maxNumbersOfRounds; i++) {
+            int randomNum = Engine.generateRandomNumber(1, 100);
+            questions[i] = Integer.toString(randomNum);
 
-            if (randomNum < 2 || isDivisorsOfNumber(randomNum)) {
-                correctAnswer[i] = "no";
-            } else {
-                correctAnswer[i] = "yes";
-            }
+            correctAnswers[i] = randomNum < 2 || hasDivisorsOfNumber(randomNum) ? "no" : "yes";
+
         }
-        Engine.evenParity(exercise, question, correctAnswer);
+        Engine.setLogicOfGame(exercise, questions, correctAnswers);
     }
 
-    public static boolean isDivisorsOfNumber(int randomNum) {
-        for (int i = 2; i < randomNum; i++) {
+    public static boolean hasDivisorsOfNumber(int randomNum) {
+        int i = 2;
+        while (i < randomNum) {
             if (randomNum % i == 0) {
-                return true;
+                return  true;
             }
+            ++i;
         }
         return false;
     }

@@ -4,31 +4,31 @@ import hexlet.code.Engine;
 
 public class Calc {
 
-    public static void startCalcGame() {
+    public static void launchTheGameCalc() {
         String exercise = "What is the result of the expression?";
-        String[] question = new String[Engine.numbersOfRounds];
-        String[] correctAnswer = new String[Engine.numbersOfRounds];
+        String[] questions = new String[Engine.maxNumbersOfRounds];
+        String[] correctAnswers = new String[Engine.maxNumbersOfRounds];
 
-        for (int i = 0; i < Engine.numbersOfRounds; i++) {
-            int firstNum = Engine.getRandomNumber(1, 20);
-            int secondNum = Engine.getRandomNumber(1, 20);
-            int operatorNum = Engine.getRandomNumber(1, 4);
+        for (int i = 0; i < Engine.maxNumbersOfRounds; i++) {
+            int firstNum = Engine.generateRandomNumber(1, 20);
+            int secondNum = Engine.generateRandomNumber(1, 20);
+            int operatorNum = Engine.generateRandomNumber(1, 4);
             switch (operatorNum) {
                 case 1:
-                    question[i] = firstNum + " + " + secondNum;
-                    correctAnswer[i] = Integer.toString(firstNum + secondNum);
+                    questions[i] = firstNum + " + " + secondNum;
+                    correctAnswers[i] = Integer.toString(firstNum + secondNum);
                     break;
                 case 2:
-                    question[i] = firstNum + " - " + secondNum;
-                    correctAnswer[i] = Integer.toString(firstNum - secondNum);
+                    questions[i] = firstNum + " - " + secondNum;
+                    correctAnswers[i] = Integer.toString(firstNum - secondNum);
                     break;
                 default:
-                    question[i] = firstNum + " * " + secondNum;
-                    correctAnswer[i] = Integer.toString(firstNum * secondNum);
+                    questions[i] = firstNum + " * " + secondNum;
+                    correctAnswers[i] = Integer.toString(firstNum * secondNum);
                     break;
             }
         }
-        Engine.evenParity(exercise, question, correctAnswer);
+        Engine.setLogicOfGame(exercise, questions, correctAnswers);
     }
 }
 
