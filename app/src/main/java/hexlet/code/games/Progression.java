@@ -28,11 +28,11 @@ public class Progression {
         for (int i = 0; i < progressionLength; i++) {
 
             if (i == positionOfHiddenElement) {
-                arithmeticProgression.append("..");
+                arithmeticProgression.append(" ").append("..");
                 correctAnswer[j] = Integer.toString(currentElement);
                 j++;
             } else {
-                arithmeticProgression.append(" ").append(currentElement).append(" ");
+                arithmeticProgression.append(" ").append(currentElement);
             }
             currentElement += stepOfProgression;
         }
