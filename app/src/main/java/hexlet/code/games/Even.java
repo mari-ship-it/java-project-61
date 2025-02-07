@@ -6,11 +6,11 @@ public class Even {
 
     public static void launchTheGameEven() {
         String exercise = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String[] questions = new String[Engine.maxNumbersOfRounds];
-        String[] correctAnswers = new String[Engine.maxNumbersOfRounds];
+        String[] questions = new String[Engine.getMaxNumbersOfRounds()];
+        String[] correctAnswers = new String[Engine.getMaxNumbersOfRounds()];
 
-        for (var i = 0; i < Engine.maxNumbersOfRounds; i++) {
-            int randomNum = Engine.generateRandomNumber(1, 100);
+        for (var i = 0; i < Engine.getMaxNumbersOfRounds(); i++) {
+            int randomNum = Engine.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
             String strRandomNum = Integer.toString(randomNum);
             String corrAnswer = randomNum % 2 == 0 ? "yes" : "no";
             questions[i] = strRandomNum;
@@ -20,4 +20,3 @@ public class Even {
         Engine.setLogicOfGame(exercise, questions, correctAnswers);
     }
 }
-

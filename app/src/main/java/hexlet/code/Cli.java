@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Cli {
 
-    public static String userName;
+    protected static String userName;
 
     public static void renderGreeting() {
         System.out.println("\nWelcome to the Brain Games!");

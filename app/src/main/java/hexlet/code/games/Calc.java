@@ -4,14 +4,16 @@ import hexlet.code.Engine;
 
 public class Calc {
 
+    protected static final int MAX_VALUE_RANDOM_NUM = 100;
+
     public static void launchTheGameCalc() {
         String exercise = "What is the result of the expression?";
-        String[] questions = new String[Engine.maxNumbersOfRounds];
-        String[] correctAnswers = new String[Engine.maxNumbersOfRounds];
+        String[] questions = new String[Engine.getMaxNumbersOfRounds()];
+        String[] correctAnswers = new String[Engine.getMaxNumbersOfRounds()];
 
-        for (int i = 0; i < Engine.maxNumbersOfRounds; i++) {
-            int firstNum = Engine.generateRandomNumber(1, 20);
-            int secondNum = Engine.generateRandomNumber(1, 20);
+        for (int i = 0; i < Engine.getMaxNumbersOfRounds(); i++) {
+            int firstNum = Engine.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
+            int secondNum = Engine.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
             int operatorNum = Engine.generateRandomNumber(1, 4);
             switch (operatorNum) {
                 case 1:
@@ -31,4 +33,3 @@ public class Calc {
         Engine.setLogicOfGame(exercise, questions, correctAnswers);
     }
 }
-

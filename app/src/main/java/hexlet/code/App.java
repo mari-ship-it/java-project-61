@@ -13,26 +13,26 @@ public class App {
         System.out.println("1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         Scanner input = new Scanner(System.in);
         System.out.print("Your choice: ");
-        int choice = input.nextInt();
+        String choice = input.nextLine();
 
         switch (choice) {
-            case 1:
+            case "1":
                 Cli.renderGreeting();
                 input.close();
                 break;
-            case 2:
+            case "2":
                 Even.launchTheGameEven();
                 break;
-            case 3:
+            case "3":
                 Calc.launchTheGameCalc();
                 break;
-            case 4:
+            case "4":
                 GCD.launchTheGameGCD();
                 break;
-            case 5:
+            case "5":
                 Progression.launchTheGameProgression();
                 break;
-            case 6:
+            case "6":
                 Prime.launchTheGamePrime();
                 break;
             default:
