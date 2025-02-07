@@ -5,13 +5,17 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Cli {
 
-    protected static String userName;
+    private static  String USER_NAME;
+
+    public static String getUserName() {
+        return USER_NAME;
+    }
 
     public static void renderGreeting() {
         System.out.println("\nWelcome to the Brain Games!");
         Scanner input = new Scanner(System.in);
         System.out.print("May I have your name? ");
-        userName = StringUtils.capitalize(input.nextLine());
-        System.out.println("Hello, " + userName + "!");
+        Cli.USER_NAME = StringUtils.capitalize(input.nextLine());
+        System.out.println("Hello, " + Cli.USER_NAME + "!");
     }
 }

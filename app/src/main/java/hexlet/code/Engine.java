@@ -23,12 +23,12 @@ public class Engine {
             String answer = input.nextLine();
 
             if (answer.equals(correctAnswers[i]) & i == 2) {
-                System.out.println("Correct!\nCongratulations, " + Cli.userName + "!");
+                System.out.println("Correct!\nCongratulations, " + Cli.getUserName() + "!");
             } else if (answer.equals(correctAnswers[i])) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswers[i]
-                        + "'.\n" + "Let's try again, " + Cli.userName + "!");
+                        + "'.\n" + "Let's try again, " + Cli.getUserName() + "!");
                 input.close();
                 break;
             }
