@@ -13,7 +13,7 @@ public class Progression {
         for (int i = 0; i < Engine.maxNumbersOfRounds; i++) {
             int randomNum = Engine.generateRandomNumber(1, 100);
             int stepOfProgression = Engine.generateRandomNumber(2, 5);
-            int positionOfHiddenElement = Engine.generateRandomNumber(2, 11);
+            int positionOfHiddenElement = Engine.generateRandomNumber(1, 10);
             question[i] = generateOfArithmeticProgression(randomNum, stepOfProgression, positionOfHiddenElement, i);
         }
         Engine.setLogicOfGame(exercise, question, correctAnswer);
@@ -36,6 +36,6 @@ public class Progression {
             }
             currentElement += stepOfProgression;
         }
-        return arithmeticProgression.toString();
+        return (arithmeticProgression.toString()).trim();
     }
 }
