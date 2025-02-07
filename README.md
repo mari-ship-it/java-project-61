@@ -9,8 +9,21 @@
 ## Start
 
 ```bash
+make
+```
+
+## Setup
+
+```bash
+make build
+```
+
+## Run
+
+```bash
 make run-dist
 ```
+
 ## Run checkstyle
 
 ```bash
