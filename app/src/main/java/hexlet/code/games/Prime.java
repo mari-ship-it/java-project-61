@@ -5,10 +5,10 @@ import hexlet.code.Engine;
 public class Prime {
     public static void launchTheGamePrime() {
         String exercise = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[] questions = new String[Engine.getMaxNumbersOfRounds()];
-        String[] correctAnswers = new String[Engine.getMaxNumbersOfRounds()];
+        String[] questions = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
+        String[] correctAnswers = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
 
-        for (int i = 0; i < Engine.getMaxNumbersOfRounds(); i++) {
+        for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
             int randomNum = Engine.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
             questions[i] = Integer.toString(randomNum);
 

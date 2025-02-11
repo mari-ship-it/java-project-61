@@ -5,11 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int MAX_NUMBERS_OF_ROUNDS = 3;
-
-    public static int getMaxNumbersOfRounds() {
-        return Engine.MAX_NUMBERS_OF_ROUNDS;
-    }
+    public static final int MAX_NUMBERS_OF_ROUNDS = 3;
 
     public static void setLogicOfGame(String exercise, String[] questions, String[] correctAnswers) {
         Cli.renderGreeting();
@@ -33,7 +29,7 @@ public class Engine {
                 break;
             }
             i++;
-        } while (i < getMaxNumbersOfRounds());
+        } while (i < MAX_NUMBERS_OF_ROUNDS);
         input.close();
     }
     public static int generateRandomNumber(int minNum, int maxNum) {

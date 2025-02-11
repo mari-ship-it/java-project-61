@@ -9,10 +9,10 @@ public class Calc {
 
     public static void launchTheGameCalc() {
         String exercise = "What is the result of the expression?";
-        String[] questions = new String[Engine.getMaxNumbersOfRounds()];
-        String[] correctAnswers = new String[Engine.getMaxNumbersOfRounds()];
+        String[] questions = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
+        String[] correctAnswers = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
 
-        for (int i = 0; i < Engine.getMaxNumbersOfRounds(); i++) {
+        for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
             int firstNum = Engine.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
             int secondNum = Engine.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
             int operatorNum = Engine.generateRandomNumber(1, MAX_VALUE_FOR_THE_COMPARISON_OPERATOR);
