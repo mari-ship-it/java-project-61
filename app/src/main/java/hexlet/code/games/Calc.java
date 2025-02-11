@@ -17,17 +17,17 @@ public class Calc {
         while (i < Engine.MAX_NUMBERS_OF_ROUNDS) {
             int firstNum = Utils.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
             int secondNum = Utils.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
-            int operatorNum = Utils.generateRandomNumber(1, MAX_VALUE_FOR_THE_COMPARISON_OPERATOR);
+            String operatorNum = Integer.toString(Utils.generateRandomNumber(1, MAX_VALUE_FOR_THE_COMPARISON_OPERATOR));
             String operator;
 
             switch (operatorNum) {
-                case 1:
+                case "1":
                     operator = "+";
                     break;
-                case 2:
+                case "2":
                     operator = "-";
                     break;
-                case 3:
+                case "3":
                     operator = "*";
                     break;
                 default:
