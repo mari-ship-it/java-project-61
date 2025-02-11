@@ -5,40 +5,31 @@ import hexlet.code.Utils;
 
 public class Progression {
 
-    private static final String[] CORRECT_ANSWERS = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
-    private static final int PROGRESSION_LENGTH = 10;
+    public static final int PROGRESSION_LENGTH = 10;
     private static final int MAX_VALUE_STEP_OF_PROGRESSION = 5;
 
     public static void launchTheGameProgression() {
         String exercise = "What number is missing in the progression?";
-        String[] question = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
+        String[][] roundsData = new String[Engine.MAX_NUMBERS_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
-
             int randomNum = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
             int stepOfProgression = Utils.generateRandomNumber(2, MAX_VALUE_STEP_OF_PROGRESSION);
-            int positionOfHiddenElement = Utils.generateRandomNumber(1, PROGRESSION_LENGTH);
-            question[i] = generateOfArithmeticProgression(randomNum, stepOfProgression, positionOfHiddenElement, i);
+            int positionOfHiddenElem = Utils.generateRandomNumber(1, PROGRESSION_LENGTH);
+            roundsData[i][Engine.QUESTION_INDEX] = getQuestionStr(randomNum, stepOfProgression, positionOfHiddenElem);
+            roundsData[i][Engine.ANSWER_INDEX] = getCurrentAnswer(randomNum, stepOfProgression, positionOfHiddenElem);
         }
-        Engine.setLogicOfGame(exercise, question, CORRECT_ANSWERS);
+        Engine.setLogicOfGame(exercise, roundsData);
     }
 
-    public static String generateOfArithmeticProgression(int randomNum, int stepOfProgression,
-                                                         int positionOfHiddenElement, int j) {
-        var arithmeticProgression = new StringBuilder();
-        int currentElement = randomNum + stepOfProgression;
+    private static String getQuestionStr(int num, int stepOfProgression, int positionOfHiddenElement) {
+        String[] progression = Utils.generateOfArithmeticProgression(num, stepOfProgression);
+        progression[positionOfHiddenElement] = "..";
+        return String.join(" ", progression);
+    }
 
-        for (int i = 0; i < PROGRESSION_LENGTH; i++) {
-
-            if (i == positionOfHiddenElement) {
-                arithmeticProgression.append(" ").append("..");
-                CORRECT_ANSWERS[j] = Integer.toString(currentElement);
-                j++;
-            } else {
-                arithmeticProgression.append(" ").append(currentElement);
-            }
-            currentElement += stepOfProgression;
-        }
-        return (arithmeticProgression.toString()).trim();
+    private static String getCurrentAnswer(int num, int stepOfProgression, int positionOfHiddenElement) {
+        String[] progression = Utils.generateOfArithmeticProgression(num, stepOfProgression);
+        return progression[positionOfHiddenElement];
     }
 }
