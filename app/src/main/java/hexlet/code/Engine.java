@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
@@ -31,9 +30,5 @@ public class Engine {
             i++;
         } while (i < MAX_NUMBERS_OF_ROUNDS);
         input.close();
-    }
-    public static int generateRandomNumber(int minNum, int maxNum) {
-        Random random = new Random();
-        return random.nextInt(minNum, maxNum);
     }
 }

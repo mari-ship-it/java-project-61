@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Progression {
 
@@ -14,9 +15,9 @@ public class Progression {
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
 
-            int randomNum = Engine.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
-            int stepOfProgression = Engine.generateRandomNumber(2, MAX_VALUE_STEP_OF_PROGRESSION);
-            int positionOfHiddenElement = Engine.generateRandomNumber(1, PROGRESSION_LENGTH);
+            int randomNum = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
+            int stepOfProgression = Utils.generateRandomNumber(2, MAX_VALUE_STEP_OF_PROGRESSION);
+            int positionOfHiddenElement = Utils.generateRandomNumber(1, PROGRESSION_LENGTH);
             question[i] = generateOfArithmeticProgression(randomNum, stepOfProgression, positionOfHiddenElement, i);
         }
         Engine.setLogicOfGame(exercise, question, CORRECT_ANSWERS);

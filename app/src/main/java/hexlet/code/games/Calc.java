@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
 
@@ -13,9 +14,9 @@ public class Calc {
         String[] correctAnswers = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
-            int firstNum = Engine.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
-            int secondNum = Engine.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
-            int operatorNum = Engine.generateRandomNumber(1, MAX_VALUE_FOR_THE_COMPARISON_OPERATOR);
+            int firstNum = Utils.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
+            int secondNum = Utils.generateRandomNumber(1, MAX_VALUE_RANDOM_NUM);
+            int operatorNum = Utils.generateRandomNumber(1, MAX_VALUE_FOR_THE_COMPARISON_OPERATOR);
             switch (operatorNum) {
                 case 1:
                     questions[i] = firstNum + " + " + secondNum;

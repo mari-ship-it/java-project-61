@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
 
@@ -11,8 +12,8 @@ public class GCD {
         String[]  correctAnswers = new String[Engine.MAX_NUMBERS_OF_ROUNDS];
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
-            int firstNum = Engine.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
-            int randomNum2 = Engine.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
+            int firstNum = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
+            int randomNum2 = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
             questions[i] = firstNum + " " + randomNum2;
             correctAnswers[i] = Integer.toString(getGreatestCommonDivisor(firstNum, randomNum2));
         }
