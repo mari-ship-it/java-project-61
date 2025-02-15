@@ -5,31 +5,50 @@ import hexlet.code.Utils;
 
 public class Progression {
 
-    public static final int PROGRESSION_LENGTH = 10;
-    private static final int MAX_VALUE_STEP_OF_PROGRESSION = 5;
+    private static final int PROGRESSION_LENGTH = 10;
 
     public static void launchTheGameProgression() {
-        String exercise = "What number is missing in the progression?";
+
+        final int maxValueRandomNum = 100;
+        final int minValueRandomNum = 0;
+        final int maxValueStepOfProgression = 5;
+        final String exercise = "What number is missing in the progression?";
         String[][] roundsData = new String[Engine.MAX_NUMBERS_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
-            int randomNum = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
-            int stepOfProgression = Utils.generateRandomNumber(2, MAX_VALUE_STEP_OF_PROGRESSION);
-            int positionOfHiddenElem = Utils.generateRandomNumber(1, PROGRESSION_LENGTH);
+
+            final int randomNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
+            final int stepOfProgression = Utils.generateRandomNumber(2, maxValueStepOfProgression);
+            final int positionOfHiddenElem = Utils.generateRandomNumber(1, PROGRESSION_LENGTH);
             roundsData[i][Engine.QUESTION_INDEX] = getQuestionStr(randomNum, stepOfProgression, positionOfHiddenElem);
             roundsData[i][Engine.ANSWER_INDEX] = getCurrentAnswer(randomNum, stepOfProgression, positionOfHiddenElem);
         }
         Engine.setLogicOfGame(exercise, roundsData);
     }
 
+    private static String[] generateOfArithmeticProgression(int randomNum, int stepOfProgression) {
+
+        String[] arithmeticProgression = new String[PROGRESSION_LENGTH];
+        int current = randomNum;
+
+        for (int i = 0; i < PROGRESSION_LENGTH; i++) {
+
+            arithmeticProgression[i] = Integer.toString(current);
+            current += stepOfProgression;
+        }
+        return arithmeticProgression;
+    }
+
     private static String getQuestionStr(int num, int stepOfProgression, int positionOfHiddenElement) {
-        String[] progression = Utils.generateOfArithmeticProgression(num, stepOfProgression);
+
+        String[] progression = generateOfArithmeticProgression(num, stepOfProgression);
         progression[positionOfHiddenElement] = "..";
         return String.join(" ", progression);
     }
 
     private static String getCurrentAnswer(int num, int stepOfProgression, int positionOfHiddenElement) {
-        String[] progression = Utils.generateOfArithmeticProgression(num, stepOfProgression);
+
+        String[] progression = generateOfArithmeticProgression(num, stepOfProgression);
         return progression[positionOfHiddenElement];
     }
 }
