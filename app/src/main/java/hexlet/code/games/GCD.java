@@ -7,12 +7,15 @@ public class GCD {
 
     public static void launchTheGameGCD() {
 
-        String exercise = "Find the greatest common divisor of given numbers.";
+        final int maxValueRandomNum = 100;
+        final int minValueRandomNum = 0;
+        final String exercise = "Find the greatest common divisor of given numbers.";
         String[][] roundsData = new String[Engine.MAX_NUMBERS_OF_ROUNDS][2];
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
-            int firstNum = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
-            int randomNum2 = Utils.generateRandomNumber(1, Calc.MAX_VALUE_RANDOM_NUM);
+
+            final int firstNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
+            final int randomNum2 = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
             roundsData[i][Engine.QUESTION_INDEX] = firstNum + " " + randomNum2;
             roundsData[i][Engine.ANSWER_INDEX] = Integer.toString(getGreatestCommonDivisor(firstNum, randomNum2));
         }
@@ -20,6 +23,7 @@ public class GCD {
     }
 
     private static int getGreatestCommonDivisor(int num1, int num2) {
+
         while (num1 != num2) {
             if (num1 > num2) {
                 num1 -= num2;
