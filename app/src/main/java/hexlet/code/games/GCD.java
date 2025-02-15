@@ -14,8 +14,8 @@ public class GCD {
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
 
-            final int firstNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
-            final int randomNum2 = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
+            int firstNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
+            int randomNum2 = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
             roundsData[i][Engine.QUESTION_INDEX] = firstNum + " " + randomNum2;
             roundsData[i][Engine.ANSWER_INDEX] = Integer.toString(getGreatestCommonDivisor(firstNum, randomNum2));
         }

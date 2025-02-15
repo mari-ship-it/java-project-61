@@ -14,7 +14,7 @@ public class Prime {
 
         for (int i = 0; i < Engine.MAX_NUMBERS_OF_ROUNDS; i++) {
 
-            final int randomNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
+            int randomNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
             roundsData[i][Engine.QUESTION_INDEX] = Integer.toString(randomNum);
             roundsData[i][Engine.ANSWER_INDEX] = randomNum < 2 || hasDivisorsOfNumber(randomNum) ? "no" : "yes";
         }
