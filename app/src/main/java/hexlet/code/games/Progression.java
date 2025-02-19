@@ -5,13 +5,12 @@ import hexlet.code.Utils;
 
 public class Progression {
 
-    private static final int PROGRESSION_LENGTH = 10;
-
     public static void launchTheGameProgression() {
 
         final int maxValueRandomNum = 100;
         final int minValueRandomNum = 0;
         final int maxValueStepOfProgression = 5;
+        final int progressionLength = 10;
         final String exercise = "What number is missing in the progression?";
         String[][] roundsData = new String[Engine.MAX_NUMBERS_OF_ROUNDS][2];
 
@@ -19,19 +18,22 @@ public class Progression {
 
             final int randomNum = Utils.generateRandomNumber(minValueRandomNum, maxValueRandomNum);
             final int stepOfProgression = Utils.generateRandomNumber(2, maxValueStepOfProgression);
-            final int positionOfHiddenElem = Utils.generateRandomNumber(1, PROGRESSION_LENGTH);
-            roundsData[i][Engine.QUESTION_INDEX] = getQuestionStr(randomNum, stepOfProgression, positionOfHiddenElem);
-            roundsData[i][Engine.ANSWER_INDEX] = getCurrentAnswer(randomNum, stepOfProgression, positionOfHiddenElem);
+            final int positionOfHiddenElem = Utils.generateRandomNumber(1, progressionLength);
+            roundsData[i][Engine.QUESTION_INDEX] =
+                    getQuestionStr(randomNum, stepOfProgression, progressionLength, positionOfHiddenElem);
+            roundsData[i][Engine.ANSWER_INDEX] =
+                    getCurrentAnswer(randomNum, stepOfProgression, progressionLength, positionOfHiddenElem);
         }
         Engine.setLogicOfGame(exercise, roundsData);
     }
 
-    private static String[] generateOfArithmeticProgression(int randomNum, int stepOfProgression) {
+    private static String[] generateOfArithmeticProgression(int randomNum, int stepOfProgression,
+                                                            int progressionLength) {
 
-        String[] arithmeticProgression = new String[PROGRESSION_LENGTH];
+        String[] arithmeticProgression = new String[progressionLength];
         int current = randomNum;
 
-        for (int i = 0; i < PROGRESSION_LENGTH; i++) {
+        for (int i = 0; i < progressionLength; i++) {
 
             arithmeticProgression[i] = Integer.toString(current);
             current += stepOfProgression;
@@ -39,16 +41,18 @@ public class Progression {
         return arithmeticProgression;
     }
 
-    private static String getQuestionStr(int num, int stepOfProgression, int positionOfHiddenElement) {
+    private static String getQuestionStr(int num, int stepOfProgression, int progressionLength,
+                                         int positionOfHiddenElement) {
 
-        String[] progression = generateOfArithmeticProgression(num, stepOfProgression);
+        String[] progression = generateOfArithmeticProgression(num, stepOfProgression, progressionLength);
         progression[positionOfHiddenElement] = "..";
         return String.join(" ", progression);
     }
 
-    private static String getCurrentAnswer(int num, int stepOfProgression, int positionOfHiddenElement) {
+    private static String getCurrentAnswer(int num, int stepOfProgression, int progressionLength,
+                                           int positionOfHiddenElement) {
 
-        String[] progression = generateOfArithmeticProgression(num, stepOfProgression);
+        String[] progression = generateOfArithmeticProgression(num, stepOfProgression, progressionLength);
         return progression[positionOfHiddenElement];
     }
 }
